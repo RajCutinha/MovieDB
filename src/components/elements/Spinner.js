@@ -1,5 +1,7 @@
+import { StyledSpinner } from "../styles/StyledSpinner";
+
 const Spinner = () => {
-	return <div>Grid</div>;
+	return <StyledSpinner />;
 };
 
 export default Spinner;
