@@ -21,8 +21,8 @@ import NoImage from "./images/no_image.jpg";
 import { useState } from "react";
 
 const Home = () => {
-	const [{ state, loading, error }, fetchMovies] = useHomeFetch();
 	const [searchTerm, setSearchTerm] = useState("");
+	const [{ state, loading, error }, fetchMovies] = useHomeFetch(searchTerm);
 
 	const searchMovies = (search) => {
 		const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
@@ -41,8 +41,6 @@ const Home = () => {
 
 		fetchMovies(endpoint);
 	};
-
-	console.log(state);
 
 	if (error) return <div>Somthing went wrong ...</div>;
 	if (!state.movies[0]) return <Spinner />;
